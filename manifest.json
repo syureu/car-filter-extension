@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "중고차 매물 거르기",
+  "version": "0.1.0",
+  "description": "엔카/K Car 검색 목록에서 직접 거른 매물을 X 표시하고 사유 메모를 보여줍니다.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "action": {
+    "default_title": "거른 매물 목록",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.encar.com/*",
+        "https://fem.encar.com/*",
+        "https://www.kcar.com/*"
+      ],
+      "js": [
+        "sites.js",
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

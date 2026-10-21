@@ -1,0 +1,212 @@
+/* 모든 클래스는 ucf- 접두사로 사이트 스타일과 충돌 방지 */
+.ucf-card {
+  position: relative !important;
+}
+/* tr 은 마지막 td 를 기준점으로 쓴다. 오버레이 폭은 JS 가 tr 폭으로 맞춘다 */
+.ucf-card-tr {
+  position: static !important;
+}
+.ucf-card-tr > td:last-child {
+  position: relative !important;
+}
+
+.ucf-filter-btn {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  z-index: 50;
+  padding: 3px 8px;
+  font: 600 12px/1.4 -apple-system, "Malgun Gothic", sans-serif;
+  color: #d32f2f;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #d32f2f;
+  border-radius: 4px;
+  white-space: nowrap;
+  cursor: pointer;
+  opacity: 0.45;
+  transition: opacity 0.15s;
+}
+.ucf-card:hover .ucf-filter-btn {
+  opacity: 1;
+}
+.ucf-filter-btn:hover {
+  background: #d32f2f;
+  color: #fff;
+}
+
+.ucf-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none; /* 카드 클릭은 그대로 동작 */
+  border: 2px solid rgba(211, 47, 47, 0.7);
+  background: rgba(255, 255, 255, 0.35);
+}
+.ucf-overlay svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.ucf-overlay line {
+  stroke: rgba(211, 47, 47, 0.75);
+  stroke-width: 2;
+}
+
+.ucf-tip {
+  display: none;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 60;
+  width: max-content;
+  min-width: 160px;
+  max-width: 280px;
+}
+.ucf-filtered:hover .ucf-tip {
+  display: block;
+}
+
+.ucf-tip,
+.ucf-panel {
+  padding: 10px 12px;
+  font: 13px/1.5 -apple-system, "Malgun Gothic", sans-serif;
+  color: #222;
+  text-align: left;
+  background: #fff;
+  border: 1px solid #d32f2f;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+}
+.ucf-tip-label {
+  font-weight: 700;
+  font-size: 12px;
+  color: #d32f2f;
+  margin-bottom: 2px;
+}
+.ucf-tip-reason {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.ucf-tip-date {
+  margin-top: 4px;
+  font-size: 11px;
+  color: #888;
+}
+.ucf-tip-btns {
+  margin-top: 8px;
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.ucf-btn {
+  white-space: nowrap;
+  padding: 4px 10px;
+  font: 600 12px/1.4 -apple-system, "Malgun Gothic", sans-serif;
+  color: #333;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.ucf-btn:hover {
+  border-color: #888;
+}
+.ucf-primary {
+  color: #fff;
+  background: #d32f2f;
+  border-color: #d32f2f;
+}
+.ucf-primary:hover {
+  background: #b71c1c;
+}
+
+.ucf-panel {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 2147483000;
+  max-width: 320px;
+}
+.ucf-panel:not(.ucf-panel-filtered) {
+  padding: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+.ucf-panel:not(.ucf-panel-filtered) .ucf-btn {
+  padding: 8px 14px;
+  font-size: 13px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.ucf-modal-back {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+}
+.ucf-modal {
+  width: min(440px, calc(100vw - 32px));
+  padding: 18px;
+  font: 14px/1.5 -apple-system, "Malgun Gothic", sans-serif;
+  color: #222;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+.ucf-modal-title {
+  font-weight: 700;
+  font-size: 16px;
+}
+.ucf-modal-sub {
+  margin: 2px 0 10px;
+  font-size: 12px;
+  color: #666;
+}
+.ucf-modal-input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px;
+  font: inherit;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+.ucf-modal-input:focus {
+  outline: 2px solid #d32f2f;
+  border-color: transparent;
+}
+.ucf-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.ucf-chip {
+  padding: 2px 8px;
+  font: 12px/1.5 -apple-system, "Malgun Gothic", sans-serif;
+  color: #555;
+  background: #f3f3f3;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.ucf-chip:hover {
+  border-color: #d32f2f;
+  color: #d32f2f;
+}
+.ucf-modal-btns {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+}
+.ucf-hint {
+  margin-right: auto;
+  font-size: 11px;
+  color: #999;
+}
